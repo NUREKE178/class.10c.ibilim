@@ -80,29 +80,8 @@
     });
   }
 })(jQuery);
-document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".card, .gallery-item, section");
-  items.forEach((el) => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(16px)";
-  });
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.style.transition =
-            "opacity 400ms ease, transform 400ms ease";
-          e.target.style.opacity = 1;
-          e.target.style.transform = "translateY(0)";
-          io.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  items.forEach((el) => io.observe(el));
+h((el) => io.observe(el));
 });
+
 
 
